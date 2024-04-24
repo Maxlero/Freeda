@@ -1,0 +1,27 @@
+.upgrade_button {
+    background-image: linear-gradient(45deg, #fa1616, #590dff) !important;
+    background-size: 120% !important;
+    border-color: white !important;
+    animation: moving 2.5s linear infinite;
+}
+
+@keyframes moving {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    20% {
+        filter: hue-rotate(45deg);
+    }
+    40% {
+        filter: hue-rotate(90deg);
+    }
+    60% {
+        filter: hue-rotate(180deg);
+    }
+    80% {
+        filter: hue-rotate(270deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}

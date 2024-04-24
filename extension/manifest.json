@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "name": "Freeda",
+  "description": "This is a Chrome extension built with Love",
+  "icons": {
+    "16": "assets/icon16.png",
+    "32": "assets/icon32.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Freeda"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://medium.com/*"
+      ],
+      "css": [
+        "inject_styles.css"
+      ],
+      "js": [
+        "inject.js"
+      ],
+      "run_at": "document_end",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "*://webcache.googleusercontent.com/*"
+      ],
+      "css": [
+        "webcache_styles.css"
+      ],
+      "js": [
+        "inject.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "rules_1.json"
+      }
+    ]
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "webRequest",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback"
+  ]
+}
