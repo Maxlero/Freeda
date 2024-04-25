@@ -50,9 +50,10 @@ const initOnCache = currentUrl => {
 
             document.body.style = 'display:block;'
         })
-        .catch(err => console.log('er Damn...', err))
+        .catch(err => console.log('Something went wrong...', err))
 
     // TODO Add youtube loading
+    // TODO replace url back
 }
 
 // Starting point.
@@ -63,6 +64,15 @@ document.addEventListener('readystatechange', async event => {
 
         // initOnMedium
         if (currentUrl.startsWith('https://medium.com')) {
+
+            // TODO add coffee break
+            window.onscroll = function (ev) {
+                if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight) {
+                    // you're at the bottom of the page
+                    console.log('Finally')
+                }
+            };
+            // //////////////// // //////////////// // //////////////// //
 
             console.log('loading complete')
             initOnMedium()
@@ -88,19 +98,22 @@ document.addEventListener('readystatechange', async event => {
         // initOnCache
         if (currentUrl.startsWith('https://webcache.googleusercontent.com/')) {
 
-            document.body.style = 'display:flex; flex-direction:column; justify-content:center;'
+            // TODO redirect back?
+            // window.history.replaceState(null,null, window.location.pathname + "/page2.php")
 
-            const loadingSpinner = document.createElement('span')
-            loadingSpinner.className = 'loader'
-            document.body.insertBefore(loadingSpinner, document.body.firstChild)
-
-            // hiding Google's bar
-            const cacheBar = document.querySelectorAll('[id$=__google-cache-hdr]')
-            if (cacheBar.length > 0) {
-                cacheBar[0].style.display = 'none'
-            }
-
-            initOnCache(currentUrl)
+            // document.body.style = 'display:flex; flex-direction:column; justify-content:center;'
+            //
+            // const loadingSpinner = document.createElement('span')
+            // loadingSpinner.className = 'loader'
+            // document.body.insertBefore(loadingSpinner, document.body.firstChild)
+            //
+            // // hiding Google's bar
+            // const cacheBar = document.querySelectorAll('[id$=__google-cache-hdr]')
+            // if (cacheBar.length > 0) {
+            //     cacheBar[0].style.display = 'none'
+            // }
+            //
+            // initOnCache(currentUrl)
         }
     }
 })

@@ -1,7 +1,12 @@
+/* hiding Google's bar */
+div[id$=__google-cache-hdr] {
+    display: none;
+}
+
 body {
     /*display:flex; flex-direction:column; justify-content:center;*/
     /*min-height:100vh;*/
-    display: none;
+    /*display: none;*/
 }
 
 .loader {

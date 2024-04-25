@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "manifest_version": 3,
   "name": "Freeda",
   "description": "This is a Chrome extension built with Love",
@@ -44,9 +44,9 @@
   "declarative_net_request": {
     "rule_resources": [
       {
-        "id": "ruleset_1",
+        "id": "ruleset_medium",
         "enabled": true,
-        "path": "rules_1.json"
+        "path": "rules.json"
       }
     ]
   },
@@ -54,7 +54,6 @@
     "tabs",
     "activeTab",
     "webRequest",
-    "declarativeNetRequest",
-    "declarativeNetRequestFeedback"
+    "declarativeNetRequest"
   ]
 }

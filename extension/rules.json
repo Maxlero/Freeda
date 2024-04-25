@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||cdn-client.medium.com/lite/static/js/main.*",
+      "initiatorDomains": [
+        "webcache.googleusercontent.com"
+      ]
+    }
+  }
+]
