@@ -1,8 +1,22 @@
 // CONST
-const SEARCH_RETRIES = 10
 const CACHE_URL_BASE = 'https://webcache.googleusercontent.com/search?q=cache:'
 
 console.log('injected :)')
+const currentUrl = window.location.href
+
+if (currentUrl && currentUrl.startsWith('https://medium.com')) {
+
+    const freeda_button = document.createElement("a")
+    freeda_button.className = "freeda-button"
+    freeda_button.textContent = "Cached"
+    document.body.appendChild(freeda_button)
+
+    // redirecting to cache page onClick
+    freeda_button.onclick = () => {
+        window.open(CACHE_URL_BASE + currentUrl, '_self')
+        return false
+    }
+}
 
 const sleep = ms => {
     return new Promise(resolve => setTimeout(() => resolve(), ms))
@@ -65,34 +79,33 @@ document.addEventListener('readystatechange', async event => {
         // initOnMedium
         if (currentUrl.startsWith('https://medium.com')) {
 
-            // TODO add coffee break
+            // TODO add coffee break notification
             window.onscroll = function (ev) {
                 if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight) {
                     // you're at the bottom of the page
                     console.log('Finally')
                 }
-            };
-            // //////////////// // //////////////// // //////////////// //
+            }
 
-            console.log('loading complete')
-            initOnMedium()
-                .then(upgradeButton => {
-                    if (upgradeButton) {
-                        console.log('success!')
-
-                        // beautifying Upgrade button
-                        upgradeButton.classList.add('upgrade_button')
-
-                        // redirecting to cache page onClick
-                        upgradeButton.onclick = () => {
-                            window.open(CACHE_URL_BASE + currentUrl, '_self')
-                            return false
-                        }
-                    } else {
-                        console.log('Upgrade button not found, try reload the page')
-                    }
-                })
-                .catch(err => console.log('Smth went wrong..', err))
+            // console.log('loading complete')
+            // initOnMedium()
+            //     .then(upgradeButton => {
+            //         if (upgradeButton) {
+            //             console.log('success!')
+            //
+            //             // beautifying Upgrade button
+            //             upgradeButton.classList.add('upgrade_button')
+            //
+            //             // redirecting to cache page onClick
+            //             upgradeButton.onclick = () => {
+            //                 window.open(CACHE_URL_BASE + currentUrl, '_self')
+            //                 return false
+            //             }
+            //         } else {
+            //             console.log('Upgrade button not found, try reload the page')
+            //         }
+            //     })
+            //     .catch(err => console.log('Smth went wrong..', err))
         }
 
         // initOnCache
