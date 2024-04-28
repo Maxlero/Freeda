@@ -114,6 +114,8 @@ document.addEventListener('readystatechange', async event => {
             // TODO redirect back?
             // window.history.replaceState(null,null, window.location.pathname + "/page2.php")
 
+            // TODO do smth when the page is not cached yet
+
             // document.body.style = 'display:flex; flex-direction:column; justify-content:center;'
             //
             // const loadingSpinner = document.createElement('span')
