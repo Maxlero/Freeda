@@ -13,7 +13,7 @@ if (currentUrl && currentUrl.startsWith('https://medium.com')) {
 
     // redirecting to cache page onClick
     freeda_button.onclick = () => {
-        window.open(CACHE_URL_BASE + currentUrl, '_self')
+        window.open(CACHE_URL_BASE + window.location.href, '_self')
         return false
     }
 }
