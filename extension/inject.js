@@ -4,17 +4,25 @@ const CACHE_URL_BASE = 'https://webcache.googleusercontent.com/search?q=cache:'
 console.log('injected :)')
 const currentUrl = window.location.href
 
-if (currentUrl && currentUrl.startsWith('https://medium.com')) {
+if (currentUrl) {
+    console.log('Adding button on ', currentUrl)
 
-    const freeda_button = document.createElement("a")
-    freeda_button.className = "freeda-button"
-    freeda_button.textContent = "Cached"
-    document.body.appendChild(freeda_button)
+    if (currentUrl.startsWith('https://medium.com')
+        || currentUrl.startsWith('https://towardsdatascience.com')
+        || currentUrl.startsWith('https://betterprogramming.com')
+        || currentUrl.startsWith('https://javascript.plainenglish.io')
+    ) {
 
-    // redirecting to cache page onClick
-    freeda_button.onclick = () => {
-        window.open(CACHE_URL_BASE + window.location.href, '_self')
-        return false
+        const freeda_button = document.createElement("a")
+        freeda_button.className = "freeda-button"
+        freeda_button.textContent = "Cached"
+        document.body.appendChild(freeda_button)
+
+        // redirecting to cache page onClick
+        freeda_button.onclick = () => {
+            window.open(CACHE_URL_BASE + window.location.href, '_self')
+            return false
+        }
     }
 }
 

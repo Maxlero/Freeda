@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.2",
   "manifest_version": 3,
   "name": "Freeda",
   "description": "This is a Chrome extension built with Love",
@@ -16,7 +16,10 @@
   "content_scripts": [
     {
       "matches": [
-        "*://medium.com/*"
+        "*://medium.com/*",
+        "*://towardsdatascience.com/*",
+        "*://betterprogramming.com/*",
+        "*://javascript.plainenglish.io/*"
       ],
       "css": [
         "inject_styles.css"
